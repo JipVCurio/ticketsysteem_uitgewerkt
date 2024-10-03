@@ -10,6 +10,8 @@ class EventCard extends Component
 {
     private $id;
 
+    private $price;
+
     private $name;
 
     private $address;
@@ -21,10 +23,11 @@ class EventCard extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($id, $name, $maxVisitors, $address)
+    public function __construct($id, $name, $maxVisitors, $address, $price)
     {
         $this->id = $id;
         $this->name = $name;
+        $this->price = $price;
         $this->address = $address;
         $this->maxVisitors = $maxVisitors;
         $this->ticketsRemaining = $maxVisitors - 100;
@@ -39,6 +42,7 @@ class EventCard extends Component
             [
                 'id' => $this->id,
                 'name' => $this->name,
+                'price' => $this->price,
                 'address' => $this->address,
                 'max_visitors' => $this->maxVisitors,
                 'tickets_remaining' => $this->ticketsRemaining,

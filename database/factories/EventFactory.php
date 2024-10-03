@@ -21,6 +21,7 @@ class EventFactory extends Factory
             'name' => fake()->name(),
             'postal_code' => fake()->postcode(),
             'address' => fake()->address(),
+            'price' => rand(100, 1000) / 10,
             'max_visitors' => rand(100, 1000),
         ];
     }

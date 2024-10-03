@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//The authenticated routes
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
+    Route::resource('events', EventsController::class);
+});
 
+//The guest routes
+Route::get('/', [PagesController::class, 'events'])->name('events');
 Route::get('/events', [PagesController::class, 'events'])->name('events');
+Route::get('/events/show/{id}', [PagesController::class, 'showEvent']);

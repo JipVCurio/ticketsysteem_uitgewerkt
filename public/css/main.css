@@ -1,3 +1,6 @@
+.flex-row {
+    display: flex;
+}
 
 .event-cards-container {
     display: flex;
@@ -6,6 +9,11 @@
 
 .event-cards-container .card {
     flex-basis: 25%;
+}
+
+.event-detail {
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 720px) {

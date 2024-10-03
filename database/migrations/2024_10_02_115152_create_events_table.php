@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('postal_code');
             $table->string('name');
+            $table->decimal('price');
             $table->timestamps();
         });
     }
