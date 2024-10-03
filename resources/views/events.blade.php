@@ -2,13 +2,15 @@
 @section('content')
     <div>
         <h1>Evenementen</h1>
-        <table>
+        <div class="event-cards-container">
             @foreach ($events as $event)
-                <tr>
-                    <td>{{$event->name}}</td>
-                    <td>Beschikbare tickets: {{$event->max_visitors}}</td>
-                </tr>
+            <x-event-card 
+                :id="$event->id" 
+                :name="$event->name"
+                :address="$event->address" 
+                :maxVisitors="$event->max_visitors" 
+                />
             @endforeach
-        </table>
+        </div>
     </div>
 @endsection
