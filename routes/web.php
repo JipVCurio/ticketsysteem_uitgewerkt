@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //The authenticated routes
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'dashboard', 'middleware' => 'is_administrator'], function() {
     Route::resource('events', EventsController::class);
 });
 
 //The guest routes
-Route::get('/', [PagesController::class, 'events'])->name('events');
-Route::get('/events', [PagesController::class, 'events'])->name('events');
-Route::get('/events/show/{id}', [PagesController::class, 'showEvent']);
+Route::get('/', [EventsController::class, 'index'])->name('home');
+Route::get('/events', [EventsController::class, 'events'])->name('events');
+Route::get('/events/show/{id}', [EventsController::class, 'show']);

@@ -40,7 +40,7 @@ class EventsController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        return view('dashboard.events.show')->with('event', $event);
+        return view('events.show')->with('event', $event);
     }
 
     /**
@@ -48,7 +48,9 @@ class EventsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        return view('dashboard.event.edit')->with('event', $event);
     }
 
     /**

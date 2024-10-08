@@ -16,6 +16,24 @@
     flex-direction: column;
 }
 
+.event-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .form-group {
+       margin-bottom: 2rem;
+
+       label {
+            width: 100%;
+       }
+
+       input {
+        width: 100%;
+       }
+    }
+}
+
 @media (max-width: 720px) {
     .event-cards-container .card {
         flex-basis: 100%;
