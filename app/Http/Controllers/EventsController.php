@@ -58,7 +58,12 @@ class EventsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        $event->update($request->only(['name', 'price', 'address', 'postal_code', 'max_visitors']));
+        $event->save();
+
+        return redirect(route('events.index'));
     }
 
     /**
@@ -66,6 +71,8 @@ class EventsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        $event->delete();
     }
 }

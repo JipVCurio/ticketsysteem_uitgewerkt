@@ -24,5 +24,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'is_administrator'], func
 
 //The guest routes
 Route::get('/', [EventsController::class, 'index'])->name('home');
-Route::get('/events', [EventsController::class, 'events'])->name('events');
+Route::get('/events', [EventsController::class, 'index'])->name('events');
 Route::get('/events/show/{id}', [EventsController::class, 'show']);
